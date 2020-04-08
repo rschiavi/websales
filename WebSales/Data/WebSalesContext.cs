@@ -14,6 +14,6 @@ namespace WebSales.Data
         {
         }
 
-        public DbSet<WebSales.Models.Department> Department { get; set; }
+        public DbSet<Department> Department { get; set; }
     }
 }
