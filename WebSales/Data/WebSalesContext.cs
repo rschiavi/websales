@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using WebSales.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace WebSales.Data
+namespace WebSales.Models
 {
     public class WebSalesContext : DbContext
     {
@@ -15,5 +10,7 @@ namespace WebSales.Data
         }
 
         public DbSet<Department> Department { get; set; }
+        public DbSet<SalesRecord> SalesRecord { get; set; }
+        public DbSet<Seller> Seller { get; set; }
     }
 }
