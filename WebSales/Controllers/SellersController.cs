@@ -39,6 +39,12 @@ namespace WebSales.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
+            if (!ModelState.IsValid)
+            {
+                List<Department> departments = _departmentService.FindAll();
+                SellerFormViewModel viewModel = new SellerFormViewModel { Seller = seller, Departments = departments };
+                return View(viewModel);
+            }
             _sellerService.Insert(seller);
             return RedirectToAction(nameof(Index));
         }
@@ -87,6 +93,12 @@ namespace WebSales.Controllers
             }
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    List<Department> departments = _departmentService.FindAll();
+                    SellerFormViewModel viewModel = new SellerFormViewModel { Seller = seller, Departments = departments };
+                    return View(viewModel);
+                }
                 _sellerService.Update(seller);
                 return RedirectToAction(nameof(Index));
             }
